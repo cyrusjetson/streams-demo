@@ -8,7 +8,8 @@ class Main {
     public static void main(String[] args) {
 
         String str = " Hai   bro  ";
-        String[] stringArr = new String[]{"Hi", "Be", "bye", "see", "hello", "Hello", "DoRa", "  ", " ", "", new String("hello")};
+        String[] stringArr = new String[]{"Hi", "Be", "bye", "see", "hello", "Hello", "DoRa", "  ", " ", "",
+                new String("hello")};
         int[] nums = new int[]{2, 4, 5, 3, 6, 7, 8, 9, 2, 9};
 
         //// ------- Streams qns --------
@@ -35,14 +36,20 @@ class Main {
 //        System.out.println("Maximum: " + Arrays.stream(nums).boxed().max(Integer::compare));
 
         // find min and max length non-empty string
-//        System.out.println(Arrays.stream(stringArr).filter(x -> !x.isEmpty()).min(Comparator.comparingInt(String::length)).orElse(null));
-//        System.out.println(Arrays.stream(stringArr).filter(x -> !x.isEmpty()).max(Comparator.comparingInt(String::length)).orElse(null));
+//        System.out.println(Arrays.stream(stringArr).filter(x -> !x.isEmpty())
+//                .min(Comparator.comparingInt(String::length)).orElse(null));
+//        System.out.println(Arrays.stream(stringArr).filter(x -> !x.isEmpty())
+//                .max(Comparator.comparingInt(String::length)).orElse(null));
 
         // find min and max length non-empty strings
-//        int minLength = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).mapToInt(String::length).min().orElse(0);
-//        int maxLength = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).mapToInt(String::length).max().orElse(0);
-//        System.out.println("Strings with same min length: " + Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty() && x.length() == minLength).toList());
-//        System.out.println("Strings with same max length: " + Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty() && x.length() == maxLength).toList());
+//        int minLength = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty())
+//                .mapToInt(String::length).min().orElse(0);
+//        int maxLength = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).mapToInt(String::length)
+//                .max().orElse(0);
+//        System.out.println("Strings with same min length: " + Arrays.stream(stringArr)
+//                .filter(x -> !x.trim().isEmpty() && x.length() == minLength).toList());
+//        System.out.println("Strings with same max length: " + Arrays.stream(stringArr)
+//                .filter(x -> !x.trim().isEmpty() && x.length() == maxLength).toList());
 
         // filter non-empty strings from a list
 //        System.out.println("non-empty strings: " + Arrays.stream(stringArr).filter(x -> !x.isEmpty()).toList());
@@ -51,7 +58,8 @@ class Main {
 //        System.out.println(Arrays.stream(stringArr).filter(x -> x.startsWith("h") || x.startsWith("H")).toList());
 
         // find first element starting with 'h'
-//        System.out.println(Arrays.stream(stringArr).filter(x -> x.startsWith("h") || x.startsWith("H")).findFirst().orElse(null));
+//        System.out.println(Arrays.stream(stringArr).filter(x -> x.startsWith("h") || x.startsWith("H"))
+//                .findFirst().orElse(null));
 
         // finding even numbers from a list
 //        System.out.println(Arrays.stream(nums).filter(x -> (x & 1) == 0).boxed().toList());
@@ -73,7 +81,8 @@ class Main {
 //                        .thenComparing(Comparator.reverseOrder())).toList());
 //        System.out.println("length(desc) and alphabetic(desc)");
 //        System.out.println(Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty())
-//                .sorted(Comparator.comparingInt(String::length).reversed().thenComparing(Comparator.reverseOrder())).toList());
+//                .sorted(Comparator.comparingInt(String::length).reversed().thenComparing(Comparator.reverseOrder()))
+//                .toList());
 //        System.out.println("length(desc) and alphabetic(asc)");
 //        System.out.println(Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty())
 //                .sorted(Comparator.comparingInt(String::length).reversed().thenComparing(String::compareTo)).toList());
@@ -91,7 +100,8 @@ class Main {
 
         // finding frequency map using streams
         // -- Long count --
-//        Map<Integer, Long> freq = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+//        Map<Integer, Long> freq = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(n -> n,
+//                Collectors.counting()));
         //  -- to Integer
 //        Map<Integer, Integer> freq = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(n -> n,
 //                Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
@@ -104,27 +114,27 @@ class Main {
 //        System.out.println(finalFreq);
 
         // group a list of objects by a field eg., group employee objects by department
-        List<Employee> employees = new ArrayList<>();
-        Employee employee1 = new Employee(1, "IT");
-        Employee employee2 = new Employee(2, "CSE");
-        Employee employee3 = new Employee(3, "IT");
-        Employee employee4 = new Employee(4, "CSE");
-        Employee employee5 = new Employee(5, "MECH");
-        Employee employee6 = new Employee(6, "BIO");
-        Employee employee7 = new Employee(7, "IT");
-        Employee employee8 = new Employee(8, "IT");
-        employees.add(employee1);
-        employees.add(employee2);
-        employees.add(employee3);
-        employees.add(employee4);
-        employees.add(employee5);
-        employees.add(employee6);
-        employees.add(employee7);
-        employees.add(employee8);
-        Map<String, Integer> employeeFreqMapByDepartment = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,
-                        Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
-        System.out.println(employeeFreqMapByDepartment);
+//        List<Employee> employees = new ArrayList<>();
+//        Employee employee1 = new Employee(1, "IT");
+//        Employee employee2 = new Employee(2, "CSE");
+//        Employee employee3 = new Employee(3, "IT");
+//        Employee employee4 = new Employee(4, "CSE");
+//        Employee employee5 = new Employee(5, "MECH");
+//        Employee employee6 = new Employee(6, "BIO");
+//        Employee employee7 = new Employee(7, "IT");
+//        Employee employee8 = new Employee(8, "IT");
+//        employees.add(employee1);
+//        employees.add(employee2);
+//        employees.add(employee3);
+//        employees.add(employee4);
+//        employees.add(employee5);
+//        employees.add(employee6);
+//        employees.add(employee7);
+//        employees.add(employee8);
+//        Map<String, Integer> employeeFreqMapByDepartment = employees.stream()
+//                .collect(Collectors.groupingBy(Employee::getDepartment,
+//                        Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+//        System.out.println(employeeFreqMapByDepartment);
 
 //        Map<String, List<Employee>> employeesMapByDepartment = employees.stream()
 //                .collect(Collectors.groupingBy(Employee::getDepartment,
@@ -132,17 +142,34 @@ class Main {
 //        System.out.println(employeesMapByDepartment);
 
         // get departments which have more than one employee
-        Map<String, Integer> freqMapWithMoreThanOneEmployeeDept = employeeFreqMapByDepartment
-                .entrySet().stream().filter(x -> x.getValue() > 1)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        System.out.println(freqMapWithMoreThanOneEmployeeDept);
+//        Map<String, Integer> freqMapWithMoreThanOneEmployeeDept = employeeFreqMapByDepartment
+//                .entrySet().stream().filter(x -> x.getValue() > 1)
+//                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+//        System.out.println(freqMapWithMoreThanOneEmployeeDept);
 
         // find second largest number in the list
-//        System.out.println(Arrays.stream(nums).sorted().boxed().);
+//        System.out.println(Arrays.stream(nums).sorted().boxed().skip(1).findFirst().orElse(null));
+
+        // find n-th largest number in the list
+//        int n = 3;
+//        System.out.println("Number array: " +  Arrays.toString(nums));
+//        System.out.println("Sorted number array: " + Arrays.stream(nums).sorted().boxed().toList());
+//        System.out.println(n + "th largest number: " + Arrays.stream(nums).distinct().sorted().boxed().skip(n - 1)
+//                .findFirst().orElse(null));
 
         // check if all elements match a condition
+//        System.out.println(Arrays.stream(nums).allMatch(x -> x % 2 == 0));
 
         // convert a list of strings to a map (string -> length)
+        System.out.println("String array: " + Arrays.toString(stringArr));
+        Map<String, Integer> stringWithLength = Arrays.stream(stringArr).collect(
+                Collectors.toMap(
+                        word -> word,
+                        String::length,
+                        (existing, replacement) -> existing
+                )
+        );
+        System.out.println(stringWithLength);
 
         // flatten a lists
 
