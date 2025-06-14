@@ -1,0 +1,12 @@
+# IntelliJ IDEA-specific files
+/.idea/shelf/
+/.idea/workspace.xml
+.idea/mavenHomeManager.xml
+.idea/streams-demo.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/misc.xml
+
+# Ignore build output directory
+/out/
+
