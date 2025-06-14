@@ -1,15 +1,20 @@
 package Entity;
 
 public class Employee {
-    private int Id;
+    private int id;
     private String name;
     private String department;
     private Address address;
 
+    public Employee(int id, String department) {
+        this.id = id;
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
                 ", address=" + address +
@@ -17,18 +22,18 @@ public class Employee {
     }
 
     public Employee(int id, String name, String department, Address address) {
-        Id = id;
+        id = id;
         this.name = name;
         this.department = department;
         this.address = address;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {

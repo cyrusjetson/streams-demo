@@ -1,3 +1,5 @@
+import Entity.Employee;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -102,6 +104,38 @@ class Main {
 //        System.out.println(finalFreq);
 
         // group a list of objects by a field eg., group employee objects by department
+        List<Employee> employees = new ArrayList<>();
+        Employee employee1 = new Employee(1, "IT");
+        Employee employee2 = new Employee(2, "CSE");
+        Employee employee3 = new Employee(3, "IT");
+        Employee employee4 = new Employee(4, "CSE");
+        Employee employee5 = new Employee(5, "MECH");
+        Employee employee6 = new Employee(6, "BIO");
+        Employee employee7 = new Employee(7, "IT");
+        Employee employee8 = new Employee(8, "IT");
+        employees.add(employee1);
+        employees.add(employee2);
+        employees.add(employee3);
+        employees.add(employee4);
+        employees.add(employee5);
+        employees.add(employee6);
+        employees.add(employee7);
+        employees.add(employee8);
+        Map<String, Integer> employeeFreqMapByDepartment = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+        System.out.println(employeeFreqMapByDepartment);
+
+//        Map<String, List<Employee>> employeesMapByDepartment = employees.stream()
+//                .collect(Collectors.groupingBy(Employee::getDepartment,
+//                        Collectors.toList()));
+//        System.out.println(employeesMapByDepartment);
+
+        // get departments which have more than one employee
+        Map<String, Integer> freqMapWithMoreThanOneEmployeeDept = employeeFreqMapByDepartment
+                .entrySet().stream().filter(x -> x.getValue() > 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println(freqMapWithMoreThanOneEmployeeDept);
 
         // find second largest number in the list
 //        System.out.println(Arrays.stream(nums).sorted().boxed().);

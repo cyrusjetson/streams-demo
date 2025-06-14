@@ -1,31 +1,31 @@
 package Entity;
 
 public class Student {
-    private int Id;
+    private int id;
     private String name;
     private Address address;
 
     @Override
     public String toString() {
         return "Student{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
                 '}';
     }
 
     public Student(int id, String name, Address address) {
-        Id = id;
+        id = id;
         this.name = name;
         this.address = address;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {
