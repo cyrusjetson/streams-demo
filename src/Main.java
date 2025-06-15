@@ -2,6 +2,7 @@ import Entity.Employee;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 class Main {
@@ -161,26 +162,64 @@ class Main {
 //        System.out.println(Arrays.stream(nums).allMatch(x -> x % 2 == 0));
 
         // convert a list of strings to a map (string -> length)
-        System.out.println("String array: " + Arrays.toString(stringArr));
-        Map<String, Integer> stringWithLength = Arrays.stream(stringArr).collect(
-                Collectors.toMap(
-                        word -> word,
-                        String::length,
-                        (existing, replacement) -> existing
-                )
-        );
-        System.out.println(stringWithLength);
+//        System.out.println("String array: " + Arrays.toString(stringArr));
+//        Map<String, Integer> stringWithLength = Arrays.stream(stringArr).collect(
+//                Collectors.toMap(
+//                        word -> word,
+//                        String::length,
+//                        (existing, replacement) -> existing
+//                )
+//        );
+//        System.out.println(stringWithLength);
 
         // flatten a lists
+//        List<List<Integer>> twoDList = Arrays.asList(
+//                Arrays.asList(1, 2, 3),
+//                Arrays.asList(4, 5),
+//                Arrays.asList(6, 7, 8, 9)
+//        );
+//        List<Integer> flattenedList = twoDList.stream().flatMap(List::stream).toList();
+//        System.out.println(flattenedList);
 
         // remove null or empty strings from a list
+//        System.out.println(Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).toList());
 
         /// hard level
         // find the longest string in a list
+//        System.out.println(Arrays.stream(stringArr).max(Comparator.comparingInt(String::length)).orElse(null));
 
         // top n elements from a list
+//        int n = 3;
+//        List<Integer> numList = Arrays.stream(nums).boxed().toList();
+//        System.out.println(numList);
+//        List<Integer> topNElements = IntStream.of(nums).distinct().boxed().sorted(Comparator.reverseOrder()).limit(n)
+//                .toList();
+//        int[] topNElementsArray = topNElements.stream().mapToInt(Integer::intValue).toArray();
+//        System.out.println(topNElements);
+//        System.out.println("as int Array: " + Arrays.toString(topNElementsArray));
+//        System.out.println(Arrays.toString(IntStream.of(nums).sorted().toArray()));
 
         // custom collector to join strings with delimiters, prefixes, and suffixes
+        String finalString = Arrays.stream(stringArr)
+            .reduce((s1, s2) -> s1 + ":" + s2)
+            .orElse("");
+        System.out.println(finalString);
+
+        finalString = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).collect(Collectors
+                .joining(",", "{", "}"));
+        System.out.println(finalString);
+
+        finalString = Arrays.stream(stringArr)
+                .filter(s -> s != null && !s.trim().isEmpty())  // remove null/empty/space-only
+                .reduce("", (s1, s2) -> s1.isEmpty() ? s2 : s1 + ":" + s2);
+        System.out.println(finalString);
+
+        finalString = Arrays.stream(stringArr)
+                .filter(s -> s != null && !s.trim().isEmpty())
+                .collect(Collectors.joining(":"));
+        System.out.println(finalString);
+
+
 
         // partition a list into two (even / odd) using Collectors.partitioningBy
 
