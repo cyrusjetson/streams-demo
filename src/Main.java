@@ -1,5 +1,6 @@
 import Entity.Employee;
 
+import javax.crypto.spec.PSource;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -8,7 +9,7 @@ import java.util.stream.Stream;
 class Main {
     public static void main(String[] args) {
 
-        String str = " Hai   bro  ";
+        String str = " Hai   bro A ";
         String[] stringArr = new String[]{"Hi", "Be", "bye", "see", "hello", "Hello", "DoRa", "  ", " ", "",
                 new String("hello")};
         int[] nums = new int[]{2, 4, 5, 3, 6, 7, 8, 9, 2, 9};
@@ -265,9 +266,56 @@ class Main {
 //        System.out.println("Parallel sum:   " + sumPar + " in " + durationPar / 1_000_000 + " ms");
 
         // calculate frequency of each character in a string
+//        Map<Character, Integer> map = str.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(
+//                c -> c,
+//                Collectors.collectingAndThen(Collectors.counting(), Long::intValue)
+//        ));
+//        System.out.println(map);
 
-        // chain multiple stream operations efficiently
+        // iterating map
+//        map.forEach((x, y) -> {
+//            if (x == ' ') x = '$';
+//            System.out.println(x + " " + y);
+//        });
 
-        // implement own collector (Collector interface)
+        // Sum of all numbers in a list
+//        System.out.println("sum: " + Arrays.stream(nums).sum());
+
+        // count elements in the list
+//        System.out.println("count: " + Arrays.stream(nums).count());
+
+        // convert list of integers into comma-separated string
+//        String finalString = Arrays.stream(nums).mapToObj(String::valueOf).collect(Collectors.joining(
+//                ",", "{", "}"
+//        ));
+//        System.out.println(finalString);
+
+        // print each element
+//        Arrays.stream(nums).forEach(System.out::println);
+
+        // count vowels
+//        List<Character> list = Arrays.asList('a', 'e', 'i', 'o', 'u');
+//        Set<Character> set = new HashSet<>(list);
+//        int count = str.chars().mapToObj(c -> Character.toLowerCase((char) c)).filter(set::contains).collect(
+//                Collectors.collectingAndThen(Collectors.counting(), Long::intValue));
+//        System.out.println("Actual string: " + str + "\nvowels count: " + count);
+
+        // Strings end with 'e'
+//        String toCheck = "e";
+//        System.out.println(Arrays.stream(stringArr).filter(x -> x.endsWith(toCheck)).toList());
+
+        // find the longest strings in the list
+//        int max = Arrays.stream(stringArr).mapToInt(String::length).max().orElse(-1);
+//        List<String> s = Arrays.stream(stringArr).filter(x -> x.length() == max).toList();
+//        System.out.println(s);
+
+        // average of all numbers
+//        System.out.println(Arrays.stream(nums).average().orElse(0));
+
+        // product of all numbers
+//        System.out.println(Arrays.stream(nums).reduce(1, (a, b) -> a * b));
+
+        // product of all numbers which may get into long range
+//        System.out.println(Arrays.stream(nums).asLongStream().reduce(1L, (a, b) -> a * b));
     }
 }
