@@ -200,43 +200,69 @@ class Main {
 //        System.out.println(Arrays.toString(IntStream.of(nums).sorted().toArray()));
 
         // custom collector to join strings with delimiters, prefixes, and suffixes
-        String finalString = Arrays.stream(stringArr)
-            .reduce((s1, s2) -> s1 + ":" + s2)
-            .orElse("");
-        System.out.println(finalString);
-
-        finalString = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).collect(Collectors
-                .joining(",", "{", "}"));
-        System.out.println(finalString);
-
-        finalString = Arrays.stream(stringArr)
-                .filter(s -> s != null && !s.trim().isEmpty())
-                .reduce("", (s1, s2) -> s1.isEmpty() ? s2 : s1 + ":" + s2);
-        System.out.println(finalString);
-
-        finalString = Arrays.stream(stringArr)
-                .filter(s -> s != null && !s.trim().isEmpty())
-                .collect(Collectors.joining(":"));
-        System.out.println(finalString);
-
-        finalString = Arrays.stream(stringArr)
-                .map(s -> s == null ? "" : s.trim())
-                .collect(
-                        StringBuilder::new,
-                        (sb, s) -> {
-                            if (!s.isEmpty()) {
-                                if (!sb.isEmpty()) sb.append(":");
-                                sb.append(s);
-                            }
-                        },
-                        StringBuilder::append
-                )
-                .toString();
-        System.out.println(finalString);
+//        String finalString = Arrays.stream(stringArr)
+//            .reduce((s1, s2) -> s1 + ":" + s2)
+//            .orElse("");
+//        System.out.println(finalString);
+//
+//        finalString = Arrays.stream(stringArr).filter(x -> !x.trim().isEmpty()).collect(Collectors
+//                .joining(",", "{", "}"));
+//        System.out.println(finalString);
+//
+//        finalString = Arrays.stream(stringArr)
+//                .filter(s -> s != null && !s.trim().isEmpty())
+//                .reduce("", (s1, s2) -> s1.isEmpty() ? s2 : s1 + ":" + s2);
+//        System.out.println(finalString);
+//
+//        finalString = Arrays.stream(stringArr)
+//                .filter(s -> s != null && !s.trim().isEmpty())
+//                .collect(Collectors.joining(":"));
+//        System.out.println(finalString);
+//
+//        finalString = Arrays.stream(stringArr)
+//                .map(s -> s == null ? "" : s.trim())
+//                .collect(
+//                        StringBuilder::new,
+//                        (sb, s) -> {
+//                            if (!s.isEmpty()) {
+//                                if (!sb.isEmpty()) sb.append(":");
+//                                sb.append(s);
+//                            }
+//                        },
+//                        StringBuilder::append
+//                )
+//                .toString();
+//        System.out.println(finalString);
 
         // partition a list into two (even / odd) using Collectors.partitioningBy
+//        Map<Boolean, List<Integer>> partitioned = Arrays.stream(nums).boxed().collect(Collectors.partitioningBy(
+//                n -> n % 2 == 0
+//        ));
+//        System.out.println("Even numbers: " + partitioned.get(true));
+//        System.out.println("Odd numbers: " + partitioned.get(false));
 
         // parallel stream performance test (compare stream and parallel stream)
+//        for (int i = 0; i < 5; i++) {
+//            int p = IntStream.rangeClosed(1, 10_000_000)
+//                    .parallel()
+//                    .filter(n -> n % 2 == 0)
+//                    .sum();
+//        }
+//        long start = System.nanoTime();
+//        long sumSeq = IntStream.rangeClosed(1, 10_000_000)
+//                .filter(n -> n % 2 == 0)
+//                .mapToLong(n -> n)
+//                .sum();
+//        long durationSeq = System.nanoTime() - start;
+//        start = System.nanoTime();
+//        long sumPar = IntStream.rangeClosed(1, 10_000_000)
+//                .parallel()
+//                .filter(n -> n % 2 == 0)
+//                .mapToLong(n -> n)
+//                .sum();
+//        long durationPar = System.nanoTime() - start;
+//        System.out.println("Sequential sum: " + sumSeq + " in " + durationSeq / 1_000_000 + " ms");
+//        System.out.println("Parallel sum:   " + sumPar + " in " + durationPar / 1_000_000 + " ms");
 
         // calculate frequency of each character in a string
 
