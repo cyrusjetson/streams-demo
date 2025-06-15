@@ -317,5 +317,33 @@ class Main {
 
         // product of all numbers which may get into long range
 //        System.out.println(Arrays.stream(nums).asLongStream().reduce(1L, (a, b) -> a * b));
+
+        // first 3 elements
+//        System.out.println(Arrays.stream(nums).limit(3).boxed().toList());
+
+        // last 3 elements
+//        System.out.println(Arrays.stream(nums).skip(nums.length - 3).boxed().toList());
+
+        // second-largest element
+//        System.out.println(Arrays.stream(nums).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1)
+//                .findFirst().orElse(0));
+
+        // count numbers equal to given number
+//        int toCheck = 8;
+//        System.out.println(Arrays.stream(nums).filter(x -> x == toCheck).count());
+
+        // Merge two lists and remove duplicates
+//        List<Integer> nums1 = Arrays.asList(1, 2, 2, 3, 4, 5);
+//        List<Integer> nums2 = Arrays.asList(6, 7, 7, 7, 8, 2);
+//        List<Integer> nums3 = Arrays.asList(6, 9, 0, 7, 8, 2);
+//        List<List<Integer>> numsArrays = Arrays.asList(nums1, nums2, nums3);
+//        List<Integer> merged = Stream.concat(nums1.stream(), nums2.stream()).distinct().sorted().toList();
+//        System.out.println(merged);
+//        merged = numsArrays.stream().flatMap(List::stream).distinct().sorted().collect(Collectors.toList());
+//        merged.add(75);
+//        System.out.println(merged);
+
+
+
     }
 }
