@@ -210,7 +210,7 @@ class Main {
         System.out.println(finalString);
 
         finalString = Arrays.stream(stringArr)
-                .filter(s -> s != null && !s.trim().isEmpty())  // remove null/empty/space-only
+                .filter(s -> s != null && !s.trim().isEmpty())
                 .reduce("", (s1, s2) -> s1.isEmpty() ? s2 : s1 + ":" + s2);
         System.out.println(finalString);
 
@@ -219,7 +219,20 @@ class Main {
                 .collect(Collectors.joining(":"));
         System.out.println(finalString);
 
-
+        finalString = Arrays.stream(stringArr)
+                .map(s -> s == null ? "" : s.trim())
+                .collect(
+                        StringBuilder::new,
+                        (sb, s) -> {
+                            if (!s.isEmpty()) {
+                                if (!sb.isEmpty()) sb.append(":");
+                                sb.append(s);
+                            }
+                        },
+                        StringBuilder::append
+                )
+                .toString();
+        System.out.println(finalString);
 
         // partition a list into two (even / odd) using Collectors.partitioningBy
 
